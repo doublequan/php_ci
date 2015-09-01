@@ -1,4 +1,4 @@
-<div style="text-align:left; border:1px solid #ccc;  ">
+<div style="text-align:left; border:1px solid #ccc;-moz-border-radius:20px; -webkit-border-radius:20px;     border-radius:20px;  ">
 	<!-- <h2><?php echo $title; ?></h2> -->
 	国内新闻
 

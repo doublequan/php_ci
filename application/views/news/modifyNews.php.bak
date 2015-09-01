@@ -1,9 +1,18 @@
 <div style="text-align:left; border:3px solid #ccc;  ">
 	<!-- <h2><?php echo $title; ?></h2> -->
 
+<script language="JavaScript">
+	<!--
+		function MM_openBrWindow(theURL,winName,features) { //v2.0
+			window.open(theURL,winName,features);
+		}
+	//-->
+</script>
+
 <?php 
 	echo validation_errors();
-	echo form_open('news/modify'); ?>
+	$hidden = array('news_id' => $news_id['id']);
+	echo form_open('news/modifyNews', '', $hidden); ?>
 	<p>
 	<label style="font-weight:bold; font-size:20px;">标题：</label>
 	<?php echo form_input(array('name'      => 'title',
@@ -29,7 +38,9 @@
 	</div>
 	</p>
 
-	<div style="text-align:center"><input  type="submit" name="submit" value="Submit"></div>
+	<div style="text-align:center">
+		<input  type="submit" name="submit" value="Submit" >
+	</div>
 </form>
 
 </div>

@@ -8,7 +8,8 @@
 		<div class="main">
 			<?php echo $news_item['text']; ?>
 		</div>
-		<a href="<?php echo site_url('news/modify/'.$news_item['id']); ?>">Edit 编辑</a>
+		<a href="<?php echo site_url('news/modify/'.$news_item['id']); ?>">Edit</a>
+		<a href="<?php echo site_url('news/delNews/'.$news_item['id']); ?>">Del</a>
 		</p>
 	<?php endforeach; ?>
 </div>

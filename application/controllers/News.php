@@ -99,9 +99,33 @@ class News extends CI_Controller {
 		}
 		else
 		{
-			//to do
+			
+			$this->load->helper('form');
+
+			// 1. get new_id from require url
+			$id = $this->input->post('news_id');
+			
+			// 2. updata database
+			$this->news_model->set_news($id);
+
+			// 3. tips of success and load to view/id 
+			// to do : lacking the tips of success by js 
+			$data['news_item'] = $this->news_model->get_news($id);
+
+			$url = site_url('news/view/'.$id);
+			echo "<meta http-equiv='refresh' content='0;url=$url'>";
+
+
+
 		}
 		
+	}
+
+	public function delNews($id)
+	{
+		$this->news_model->del_news($id);
+		$url = site_url('news/index');
+		echo "<meta http-equiv='refresh' content='0;url=$url'>";
 	}
 
 }

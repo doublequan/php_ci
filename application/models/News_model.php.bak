@@ -18,28 +18,37 @@ class News_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function set_news()
+	//if id = -1, create a news, otherwise modify the news by id
+	public function set_news($id = -1)
 	{
-		$this->load->helper('url');
+		if ($id === -1)
+		{
+			$this->load->helper('url');
 
-		$slug = url_title($this->input->post('title'), 'dash', TRUE);
+			$slug = url_title($this->input->post('title'), 'dash', TRUE);
 
-		//echo 'from set_new() : ';
-		//echo $this->input->post('title');
-		//echo urldecode($this->input->post('title'));
+			$data = array(
+				'title' => $this->input->post('title'),
+				'slug' => $slug,
+				'text' => $this->input->post('text')
+			);
 
-		$data = array(
-			'title' => $this->input->post('title'),
-			'slug' => $slug,
-			'text' => $this->input->post('text')
-		);
-
-		return $this->db->insert('news', $data);
+			return $this->db->insert('news', $data);
+		}
+		else
+		{
+			//更新对应id的新闻的title和text
+			$data = array(
+				'title' => $this->input->post('title'),
+				'text' => $this->input->post('text')
+				);
+			return $this->db->update('news',  $data, array('id' => $id));
+		}
 	}
 
 	public function del_news($id)
 	{
-
+		
 	}
 
 }
