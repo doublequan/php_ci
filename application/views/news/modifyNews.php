@@ -1,13 +1,7 @@
 <div style="text-align:left; border:3px solid #ccc;  ">
 	<!-- <h2><?php echo $title; ?></h2> -->
 
-<script language="JavaScript">
-	<!--
-		function MM_openBrWindow(theURL,winName,features) { //v2.0
-			window.open(theURL,winName,features);
-		}
-	//-->
-</script>
+
 
 <?php 
 	echo validation_errors();

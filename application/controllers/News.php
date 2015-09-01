@@ -95,7 +95,16 @@ class News extends CI_Controller {
 		$this->form_validation->set_rules('text', 'text', 'required');
 		if ($this->form_validation->run() === FALSE)
 		{	
-			//to do
+
+			?>	
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<script type="text/javascript">
+				alert('标题或内容不能为空！');
+			</script>
+			<?php
+			
+			$this->modify($this->input->post('news_id'));
+		
 		}
 		else
 		{
@@ -109,7 +118,12 @@ class News extends CI_Controller {
 			$this->news_model->set_news($id);
 
 			// 3. tips of success and load to view/id 
-			// to do : lacking the tips of success by js 
+			?>	
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<script type="text/javascript">
+				alert('修改成功！');
+			</script>
+			<?php
 			$data['news_item'] = $this->news_model->get_news($id);
 
 			$url = site_url('news/view/'.$id);
@@ -124,6 +138,14 @@ class News extends CI_Controller {
 	public function delNews($id)
 	{
 		$this->news_model->del_news($id);
+		?>	
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<script type="text/javascript">
+				alert('删除成功');
+			</script>
+		<?php
+
+		
 		$url = site_url('news/index');
 		echo "<meta http-equiv='refresh' content='0;url=$url'>";
 	}

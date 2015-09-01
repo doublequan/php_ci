@@ -3,6 +3,19 @@
     <head>
         <title>Daily News 每日新闻</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script language="JavaScript">
+			<!--
+				function MM_openBrWindow(theURL,winName,features) { //v2.0
+					window.open(theURL,winName,features);
+				}
+				function Tips(var msg)
+				{
+					alert(msg);
+				}
+			//-->
+		</script>
+
     </head>
     <body>
 		
