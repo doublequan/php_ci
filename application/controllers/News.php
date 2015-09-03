@@ -11,6 +11,7 @@ class News extends CI_Controller {
         $this->load->helper('url_helper');
     }
 
+	//
     public function index()
     {
 		//echo 'in function index()';

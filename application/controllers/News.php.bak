@@ -137,7 +137,7 @@ class News extends CI_Controller {
 
 	public function delNews($id)
 	{
-		￥this->news_model->del_news($id);
+		$this->news_model->del_news($id);
 		?>	
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<script type="text/javascript">
