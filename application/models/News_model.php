@@ -1,4 +1,11 @@
 <?php
+
+
+/**
+ * News Model
+ * Deal with news database
+ * Author : Bill Quan
+ */
 class News_model extends CI_Model
 {
 	public function __construct()
@@ -6,6 +13,8 @@ class News_model extends CI_Model
 		$this->load->database();
 	}
 
+	//get the news by $id
+	//if no input $id or $id == -1, show all the news in the database
 	public function get_news($id = -1)
 	{
 		if ($id === -1)
@@ -19,6 +28,7 @@ class News_model extends CI_Model
 	}
 
 	//if id = -1, create a news, otherwise modify the news by id
+	//create of modify the news by info in the POST
 	public function set_news($id = -1)
 	{
 		if ($id === -1)
@@ -37,7 +47,7 @@ class News_model extends CI_Model
 		}
 		else
 		{
-			//更新对应id的新闻的title和text
+			//update the news of $id
 			$data = array(
 				'title' => $this->input->post('title'),
 				'text' => $this->input->post('text')
@@ -46,6 +56,7 @@ class News_model extends CI_Model
 		}
 	}
 
+	//del the news by $id
 	public function del_news($id)
 	{
 		return $this->db->delete('news', array('id' => $id));
