@@ -1,5 +1,5 @@
 <?php
-
+/**
 // download www.baidu.com
 //$curl = curl_init("http://www.baidu.com");
 //curl_exec($curl);
@@ -34,3 +34,36 @@ else
 	echo 'Curl error: '.curl_errno($curlobj);
 }
 //echo str_replace("百度","Google", $output); 
+
+**/
+/**
+
+$className = 'prc'; // Name of the class
+
+$domDocument = new DOMDocument('1.0');
+@$domDocument->loadHTMLFile('http://www.91shishen.com');
+$domXPath = new DOMXPath($domDocument);
+
+// Obtain all elements with the specified class name
+$prcs = $domXPath->query(
+    "//*[contains(concat(' ', normalize-space(@class), ' '), ' $className ')]"
+);
+
+for ($i = 0; $i < $prcs->length; $i++) {
+    // For each item found, store it in $result
+    $result[] = $prcs->item($i)->firstChild->nodeValue;
+	echo "in for";
+}
+
+// Display results
+print_r($result);
+
+
+$url = "http://komunitasweb.net/";  
+if (preg_match('/^(http|https):\/\/\w{12}\.?[com|net|cn]/', $url)) 
+	{  
+    echo "Your url is ok.";  
+} else {  
+    echo "Wrong url.";  
+}
+**/
